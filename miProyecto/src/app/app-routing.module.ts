@@ -18,6 +18,17 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule),
+    canActivate:[NoIngresadoGuard]
+
+  },
+  {
+    path: 'registro',
+    loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule),
+    canActivate:[NoIngresadoGuard]
+  },
+  {
     path: 'e404e',
     loadChildren: () => import('./e404e/e404e.module').then( m => m.E404ePageModule),
     canActivate:[NoIngresadoGuard]
@@ -40,17 +51,7 @@ const routes: Routes = [
     redirectTo: 'e404e',
     pathMatch: 'full'
   },
-  {
-    path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule),
-    canActivate:[NoIngresadoGuard]
-
-  },
-  {
-    path: 'registro',
-    loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule),
-    canActivate:[NoIngresadoGuard]
-  },
+  
   
   
 ];
